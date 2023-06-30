@@ -21,9 +21,9 @@
             <li><a href="#services">Services</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="#contact">Contact us</a></li>
-            <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+            <i id="close" class="fa-solid fa-xmark" onclick="closemenu()"></i>
           </ul>
-          <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+          <i id="open" class="fa-solid fa-bars" onclick="openmenu()"></i>
         </nav>
         <div class="header-text">
           <p>UI/UX Designer</p>
@@ -218,32 +218,27 @@
         </div>
      </div>
      <script>
-      var sidemeu=document.getElementById("sidemenu");
+      let sidemeu=document.getElementById("sidemenu");
+      let open=document.getElementById("open");
+      let close=document.getElementById("close")
 
-      function openmenu(){
-            sidemeu.style.right="0";
+      if(open){
+        open.addEventListener("click",()=>{
+                            sidemenu.classList.add("Active");
+              })
       }
-      function closemenu(){
-            sidemeu.style.right="-200px";
+      if(close){
+        close.addEventListener("click",()=>{
+                            sidemenu.classList.remove("Active");
+              })
+      }
+      document.onclick=function(e){
+        if(e.target.id!=="sidemenu" && e.target.id!=="open"){
+            sidemenu.classList.remove("Active")
+        }
       }
      </script>
-     <script>
-      var tablinks = document.getElementsByClassName("tab-links");
-      var tabcontents = document.getElementsByClassName("tab-contents");
-      var tablink;
-      var tabcontent;
-      function opentab(tabname){
-            for(tablink of tablinks){
-              tablink.classList.remove("active-link");
-            }
-            for(tabcontent of tabcontents){
-              tabcontent.classList.remove("active-tab");
-            }
-            event.currentTarget.classList.add("active-link");
-            document.getElementById(tabname).classList.add("active-tab");
-      }
-
-     </script>
+     
      <script>
       const scriptURL = 'https://script.google.com/macros/s/AKfycbwF8Id8gZnE2ZcFhSWwZk4dOSQRVHgWJVDbLVEh5bQmfjAuOqt9ZDAZvGbemWUk49Zk/exec'
       const form = document.forms['submit-to-google-sheet']
