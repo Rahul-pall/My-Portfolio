@@ -452,6 +452,12 @@ nav .fa-solid{
         margin-top: -40px;
         display: block;
 }
+nav{
+        padding: 5px 20px;
+}
+.logo{
+        width: 50px;
+}
 @media(min-width:786px) and (max-width:1000px){
         #header{
                 /* background-image: url(images/phone-background.png); */
